@@ -1,0 +1,46 @@
+{% extends 'app/app_base.html' %} {% block 'body_block' %}
+
+<div class="jumbotron" style="width: 100%">
+  <h1>School Detail Page</h1>
+</div>
+<h2>Details</h2>
+
+<style>
+  .first-col {
+    width: 200px;
+  }
+</style>
+
+<div style="width: 100%">
+  <table>
+    <tr>
+      <td class="first-col">School Name:</td>
+      <td>{{ school_detail.name }}</td>
+    </tr>
+
+    <tr>
+      <td class="first-col">Principal:</td>
+      <td>{{ school_detail.principal }}</td>
+    </tr>
+    <tr>
+      <td class="first-col">Location:</td>
+      <td>{{ school_detail.location }}</td>
+    </tr>
+  </table>
+
+  <br />
+  <br />
+
+  <h3>Students</h3>
+
+  {% for student in school_detail.students.all %}
+
+  <p>{{student.name}} who is {{student.age}} years old.</p>
+
+  {% endfor %}
+  <div>
+    <p><a class="btn btn-warning" href="{% url 'app:update' pk=school_detail.pk %}">Update School</a></p>
+  </div>
+
+  {% endblock %}
+</div>

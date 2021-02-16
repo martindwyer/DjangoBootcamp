@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'includes/base.html' %} {% load my_extras %} {% block 'body_block' %}
+
+<div class="container">
+  <h1>Home</h1>
+  <h3>{{ text|snip_it:'hello' }}</h3>
+  <p>The number: {{ number|add:99 }}</p>
+</div>
+
+{% endblock %}
